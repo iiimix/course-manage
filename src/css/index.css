@@ -1,0 +1,254 @@
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video{
+	margin: 0;
+	padding: 0
+}
+a{
+	text-decoration: none;
+	cursor: pointer;
+}
+a:hover{
+	text-decoration: none;
+}
+body{
+	background: #f1f2f7;
+}
+
+.header_wrap{	
+	background: #fff;
+    border-bottom: 1px solid #f1f2f7;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1002;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 0.25s ease-in-out;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
+}
+.header_left{
+	display: flex;
+}
+.header_alert{
+	margin-left: 30px;
+}
+.user_name{
+	cursor: pointer;
+}
+.arrow_up{
+	background: url(../images/arrow-up.png) no-repeat;
+    width: 20px;
+    height: 11px;
+    position: absolute;
+    right: 20px;
+    top: -10px;
+}
+.regist{
+	padding: 10px;
+    background: #41cac0;
+    border-radius: 4px;
+    color: #fff;
+    margin-left: 8px;
+}
+.login_form{
+	max-width: 330px;
+	margin: 100px auto 0;
+	background-color: #fff;
+	border-radius: 4px
+}
+.login_form h4{
+	text-align: center;
+	padding: 20px 15px;
+	background: #41cac0;
+	color: #fff;
+	border-radius:5px 5px 0 0;
+}
+.login_wrap{
+	padding: 20px;
+}
+.password{
+	margin: 20px 0
+}
+.btn_sign_in{
+	width: 100%;
+	background: #f67a6e;
+    color: #fff;
+    box-shadow: 0 4px #e56b60;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.hasno{
+	float: right;
+	margin-bottom: 15px;
+}
+.aside_wrap{
+	width: 180px;
+    height: 100%;
+    position: fixed;
+    background: #2a3542;
+}
+.banner_wrap{
+	padding-top: 60px;
+}
+.banner_pic{
+	width: 100%;
+	height: 450px;
+	background:url(../images/banner1.jpg) no-repeat; 
+	background-size: cover;
+	text-align: center;
+	padding-top: 140px;
+	color: #fff
+}
+.banner_title h1{
+	font-size: 48px;
+}
+.join_us{
+	display: block;
+	width: 160px;
+    height: 40px;
+    margin: 0 auto;
+    line-height: 40px;
+    background-color: #41cac0;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 50px;
+    font-size: 16px;
+    position: relative;
+}
+.join_us:hover{
+	color: #fff;
+	background-color: #30958e;
+}
+.join_us:before{
+	content: '';
+	position: absolute;	
+	left: 0;
+	top: 0;
+	width: 160px;
+	height: 40px;
+	border-radius: 4px;
+	box-shadow:0 0 0 0 #41cac0;
+	animation: btn_wave 3s infinite;
+
+}
+
+@-webkit-keyframes btn_wave{
+    0%{
+        box-shadow:0 0 0 0 #41cac0
+    }
+    0%,90%{
+        opacity:.8
+    }
+    to{
+        opacity:0;
+        box-shadow:0 0 0 7pt rgba(255,255,255,0)
+    }
+}
+@keyframes btn_wave{
+    0%{
+        box-shadow:0 0 0 0 #41cac0
+    }
+    0%,90%{
+        opacity:.8
+    }
+    to{
+        opacity:0;
+        box-shadow:0 0 0 7pt rgba(255,255,255,0)
+    }
+}
+
+
+.product_info{
+	padding: 42px 0;
+}
+.product_item{
+	display: block;
+    height: 200px;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px 1px rgba(49, 49, 49, 0.2);
+    transition: all 0.3s ease;
+    text-align: center;
+    padding-top: 40px;
+}
+.product_item:hover{
+	transform: translateY(-10px);
+
+}
+
+.pic_intro{
+	font-size: 20px;
+	margin-top: 25px;
+}
+.freshman_title{
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px; 
+}
+.content_course{
+	padding: 30px 0;
+	display: flex;
+	justify-content: space-between;
+}
+.course_item{
+	width: 22%;
+	
+    background: #fff;
+    padding-bottom: 40px;
+}
+.course_img{
+	width: 100%;
+	height: 140px;
+	overflow: hidden;
+}
+.course_item img{
+	width: 100%;
+	height: 140px;
+	transition: all 1s ease 0s;
+}
+.course_title{
+	padding: 8px 15px;
+}
+.course_item:hover{
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
+}
+.course_item:hover img{
+	transform: scale(1.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
