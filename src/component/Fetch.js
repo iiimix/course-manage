@@ -1,8 +1,9 @@
+
 const data_base = 'http://localhost:8080/api/';
 // const data_base = 'http://192.168.2.12:8080/api/';
 export const login = (username, password) => {
-     let body = 'name=' + username;
-     body += '&password=' + password;
+     let body = 'name='+username;
+     body += '&password='+password;
      return new Promise((resolve, reject) => {
           fetch(data_base + 'user/accesstoken/', {
                method: 'POST',
@@ -11,9 +12,9 @@ export const login = (username, password) => {
                     "Content-Type": "application/x-www-form-urlencoded",
                     // 'Authorization': ''
                },
-          }).then((res) => {
-               // console.log(res)
-
+          }).then((res)=> {
+               console.log(res)
+ 
                if (res.ok) {
                     // console.log(res.json())
                     return res.json().then((data) => {
@@ -23,44 +24,16 @@ export const login = (username, password) => {
                     reject(res.status);
                }
 
-          }).catch((err) => {
+          }).catch((err)=> {
                console.log('throw error')
                reject(err);
           })
      });
 }
-export const downFile = () => {
-     return new Promise((resolve, reject) => {
-          fetch(data_base + 'down/', {
-               method: 'GET',
-               headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                    // 'Authorization': ''
-               },
-          }).then((res) => {
-               if (res.ok) {
-                    return res.text().then((data) => {
-                         // console.log(data)
-                         resolve(data);
-                    })
-               } else {
-                    resolve([]);
-               }
-
-          }).catch((err) => {
-               console.log(err);
-               resolve([]);
-          })
-     });
-}
-// downFile().then((url)=>{
-     // console.log(url)
-// })
-
 
 export const signup = (username, password) => {
-     let body = 'name=' + username;
-     body += '&password=' + password;
+     let body = 'name='+username;
+     body += '&password='+password;
      return new Promise((resolve, reject) => {
           fetch(data_base + 'signup/', {
                method: 'POST',
@@ -69,7 +42,7 @@ export const signup = (username, password) => {
                     "Content-Type": "application/x-www-form-urlencoded",
                     // 'Authorization': ''
                },
-          }).then((res) => {
+          }).then((res)=> {
                if (res.ok) {
                     return res.json().then((data) => {
                          resolve(data);
@@ -79,7 +52,7 @@ export const signup = (username, password) => {
                     resolve([]);
                }
 
-          }).catch((err) => {
+          }).catch((err)=> {
                console.log(err);
                resolve([]);
           })

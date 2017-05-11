@@ -2,31 +2,26 @@ import React,{Component} from 'react'
 
 import '../../css/index.css'
 import '../../css/fonts/font-awesome.min.css'
-import {downFile} from '../Fetch'
 class Header extends Component {
 	constructor(props) {
 		// code
 		super(props);
 		this.state={
-			username:'',
-			url:''
+			username:''
 		}
 	}
-	componentWillMount() {
-		// console.log(localStorage.hasOwnProperty('userName'));
-		if (localStorage.hasOwnProperty('userName')) {
-			downFile().then((url) => {
-				this.setState({
-					url: url,
-					username: localStorage.getItem('userName')
-				})
+	componentWillMount(){
+		console.log(localStorage.hasOwnProperty('userName'));
+		if(localStorage.hasOwnProperty('userName')){
+			this.setState({
+				username:localStorage.getItem('userName')
 			})
-
-		} else {
+		}
+		else{
 			return;
 		}
 
-
+	
 	}
 	exit(e){
 		this.setState({
@@ -45,7 +40,7 @@ class Header extends Component {
 						<div className='col-xs-12 header'>
 							<div className='header_left'>
 								<div>
-									<a className='logo' download href={this.state.url}>云课堂</a>
+									<a className='logo'>云课堂</a>
 								</div>
 								<div className='header_alert'>
 									<i className='fa fa-bell'></i>

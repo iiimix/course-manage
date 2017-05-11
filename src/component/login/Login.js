@@ -9,11 +9,6 @@ class Login extends Component {
 			password:''
 		}
 	}
-	componentWillMount() {
-		if(localStorage.hasOwnProperty('userName')){
-			hashHistory.push('');
-		}
-	}
 	login(e){
 		e.preventDefault();
 		login(this.state.username,this.state.password).then((data)=>{
