@@ -6,7 +6,14 @@ class Banner extends Component{
 				<div className='banner_pic'>
 					<div className='banner_title'>
 						<h1>大学计算机专业课程体系</h1>
-					    <a className='join_us' href='#/register'>立即注册</a>
+						{localStorage.hasOwnProperty('userName')?
+						<a className='join_us' > 欢迎使用</a>
+
+					:
+					    <a className='join_us' 
+					    href='#/login'
+					    >立即登录</a>
+					    }
 					</div>
 				</div>
 				<section className='product_info'>
