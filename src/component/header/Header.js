@@ -1,50 +1,70 @@
 import React,{Component} from 'react'
+import {hashHistory} from 'react-router'
+import {exit} from '../Fetch'
 
 import '../../css/index.css'
 import '../../css/fonts/font-awesome.min.css'
+
 class Header extends Component {
 	constructor(props) {
 		// code
 		super(props);
 		this.state={
-			username:''
+			username:'',
+			is_admin:''
+			
 		}
 	}
-	componentWillMount(){
-		console.log(localStorage.hasOwnProperty('userName'));
-		if(localStorage.hasOwnProperty('userName')){
+	beforeRender() {
+		if (localStorage.hasOwnProperty('userName')) {
+
 			this.setState({
-				username:localStorage.getItem('userName')
+
+				username: localStorage.getItem('userName'),
+				is_admin:localStorage.getItem('is_admin')
 			})
-		}
-		else{
+
+		} else {
 			return;
 		}
-
-	
+	}
+	componentWillMount() {
+		// console.log(localStorage.hasOwnProperty('userName'));
+		this.beforeRender()
+	}
+	componentWillReceiveProps(nextProps) {
+		this.beforeRender()
+	}
+	componentWillUnmount() {
+		alert('exit')
 	}
 	exit(e){
 		this.setState({
 			username:''
 		})
-		localStorage.removeItem('userName')
-
-
+		exit();
+		// localStorage.removeItem('userName');
+		// localStorage.removeItem('userToken');
+		// localStorage.removeItem('is_admin');
+		// localStorage.removeItem('is_teacher');
+		localStorage.clear();
+		hashHistory.push('');
 	}
 	render() {
-
+	
 		return(
 			<header className='header_wrap'>
 				<div className='container'>
 					<div className='row'>
 						<div className='col-xs-12 header'>
 							<div className='header_left'>
-								<div>
-									<a className='logo'>云课堂</a>
-								</div>
 								<div className='header_alert'>
-									<i className='fa fa-bell'></i>
+								    <img src={require('../../images/logo_book.png')} alt='logo'/>
+									{/*<i className='fa fa-home'></i>*/}
 						            <span></span>
+								</div>
+								<div>
+									<a className='logo' href='/'>云课堂</a>
 								</div>
 							</div>
 				            {
@@ -60,10 +80,17 @@ class Header extends Component {
 				                	    <span className='caret'></span>
 				                	</div>
 				                    <ul className="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
-				                	    <li role="presentation" >
-					                	    <div className='arrow_up'></div>
-				                		    <a role="menuitem" onClick={(e)=>{this.exit(e)}}>退出</a>
+				                        <div className='arrow_up'></div>
+				                        {
+				                        	this.state.is_admin==='true'?
+				                        	<li role="presentation" >
+				                		       <a role="menuitem" href='#/user'>用户管理</a>
+				                	        </li>:null
+				                        }
+				                	    <li role="presentation" >		                	    
+				                		    <a role="menuitem" onClick={(e)=>{this.exit(e)}}>退出登录</a>
 				                	    </li>
+				                	    
 				                    </ul>
 				                </div>
 				            }

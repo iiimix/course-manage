@@ -9,12 +9,21 @@ class Login extends Component {
 			password:''
 		}
 	}
+	componentWillMount() {
+		if(localStorage.hasOwnProperty('userName')){
+			hashHistory.push('');
+		}
+	}
 	login(e){
 		e.preventDefault();
 		login(this.state.username,this.state.password).then((data)=>{
 			if(data.success){
 				
 				localStorage.setItem("userName",this.state.username);
+				localStorage.setItem("userToken",data.token);
+				localStorage.setItem("is_admin",data.is_admin);
+				localStorage.setItem("is_teacher",data.is_teacher);
+
 				hashHistory.push('');
 				
 			}else{
@@ -22,7 +31,7 @@ class Login extends Component {
 			}
 		},(rejected)=>{
 			alert('网络错误')
-			console.log(rejected);
+			// console.log(rejected);
 		})
 	}
 	render() {

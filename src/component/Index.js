@@ -1,21 +1,23 @@
 import React,{Component} from 'react'
 import Banner from './banner/Banner'
-import Header from './header/Header'
-import CollegeOne from './content/CollegeOne'
-import CollegeThree from './content/CollegeThree'
-import CollegeFour from './content/CollegeFour'
-import CollegeTwo from './content/CollegeTwo'
+
+import College from './content/College'
+
 
 class Index extends Component{
 	render(){
 		return(
 			<div>
-				<Header />
+				{/*<Header />*/}
 				<Banner />
-				<CollegeOne />
-				<CollegeTwo  />
+				<College name='college_one'/>
+				<College name='college_two'/>
+				<College name='college_three'/>
+				<College name='college_four'/>
+				{/*<Footer />*/}
+				{/*<CollegeTwo  />
 				<CollegeThree />
-				<CollegeFour />
+				<CollegeFour />*/}
 			</div>
 
 			)
