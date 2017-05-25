@@ -1,6 +1,8 @@
 import $ from 'jquery'
 // const data_base = 'http://192.168.3.7:8080/api/';
 const data_base = 'http://localhost:8080/api/';
+// const data_base = 'http://39.108.68.148:8080/api/';
+
 export const login = (username, password) => {
           let body = 'name=' + username;
           body += '&password=' + password;
