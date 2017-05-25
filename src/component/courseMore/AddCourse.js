@@ -41,15 +41,11 @@ class AddCourse extends Component {
 	}
 	add() {
 		this.props.dispatch(showLoading(true));
-		let imageData = new FormData();
-		imageData.append('smfile', $('#course_image').get(0).files[0]);
-		uploadImage(imageData).then((data) => {
 			let formdata = new FormData($('#course_form')[0]);
 			formdata.append('grade', $("#kind").val());
 			formdata.append('name', this.state.name);
 			formdata.append('author', localStorage.getItem('userName'));
 			formdata.append('description', this.state.description);
-			formdata.append('image_url', data.url);
 
 			addCourse(formdata).then((data) => {
 				if (data.success) {
@@ -58,14 +54,9 @@ class AddCourse extends Component {
 					location.reload()
 				} else {
 					alert(data.message);
+					this.props.dispatch(showLoading(false));
 				}
 			})
-
-		}, (rejected) => {
-			alert('网络错误')
-		})
-
-		// return;
 	}
 	render() {
 		return (
@@ -110,7 +101,7 @@ class AddCourse extends Component {
 					  <div className="form-group">
 					    <label 	className="col-sm-2 control-label">课件图片</label>
 					    <div className="col-sm-10">
-							<input className='course_image' id="course_image" type="file" 
+							<input className='course_image' name="course_image" type="file" 
 							onChange={(e)=>this.chooseImage(e)} accept="image/gif,image/jpeg,image/jpg,image/png"/>
 						    <i className='image_btn' onClick={(e)=>{this.setState({src:''})}}>清空
 							</i>

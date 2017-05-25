@@ -56,7 +56,7 @@ class CollegeTwo extends Component {
 								<figure className='course_item '>
 									    <a href={'#/couserDetail/'+item._id} className='tab_href'></a>
 									    <div className='course_img'>
-							            	    	<img src={item.image_url || require('../../images/computer.jpg')} alt='course'/>
+							            	    	<img src={'http://localhost:8080/images/' + item.image_url} alt='course'/>
 							            	    </div>
 							            		<figcaption className='course_title'>
 							            			<div className='course_name' title='课程名称'>{item.name}</div>

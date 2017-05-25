@@ -285,7 +285,6 @@ export const addCourse = (formdata) => {
                // .then((res)=>{
                //      if(res.ok){
                //           return res.json().then((data)=>{
-
                //             resolve(data);
                //           })
                //      }
