@@ -3,6 +3,7 @@ import $ from 'jquery'
 // const data_base = 'http://localhost:8080/api/';
 const data_base = 'http://39.108.68.148:8080/api/';
 
+localStorage.setItem("servie_ip",'http://39.108.68.148:8080/');
 export const login = (username, password) => {
           let body = 'name=' + username;
           body += '&password=' + password;

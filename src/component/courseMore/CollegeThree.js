@@ -58,7 +58,7 @@ class CollegeThree extends Component {
 								<figure className='course_item '>
 									    <a href={'#/couserDetail/'+item._id} className='tab_href'></a>
 									    <div className='course_img'>
-							            	    	<img src={'http://localhost:8080/images/' + item.image_url} alt='course'/>
+							            	    	<img src={localStorage.getItem('servie_ip') + 'images/' + item.image_url} alt='course'/>
 							            	    </div>
 							            		<figcaption className='course_title'>
 							            			<div className='course_name' title='课程名称'>{item.name}</div>

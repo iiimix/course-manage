@@ -96,7 +96,7 @@ class College extends Component {
 		            					<a href={'#/couserDetail/'+item._id} onClick={()=>_this.seeFile(item._id)}>
 		            						<figure className='course_item '>
 							            	    <div className='course_img'>
-							            	    	<img src={'http://localhost:8080/images/' + item.image_url} alt='course_image'/>
+							            	    	<img src={localStorage.getItem('servie_ip') + 'images/' + item.image_url} alt='course_image'/>
 							            	    </div>
 							            		<figcaption className='course_title'>
 							            			<div className='course_name' title='课程名称'>{item.name}</div>
