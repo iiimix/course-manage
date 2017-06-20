@@ -1,4 +1,4 @@
-**Upload and download course**
+*Upload and download course*
 
 **Scaffold**
 
